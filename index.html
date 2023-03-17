@@ -7,8 +7,9 @@
     <title>WhatsApp di Boolean</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
-<body class="debug">    
+<body>    
     <div id="app">
         <div class="background">
             <div class="background_top"></div>
@@ -20,8 +21,8 @@
                 <div class="a_side boder flex">
                     <div class="user_box flex">
                         <div class="avatar flex">
-                            <img src="img/avatar_1.jpg" alt="mia foto avatar">
-                            <span class="name">Emanuele</span>
+                            <img :src="myAvatar.avatar" alt="myAvatar.name">
+                            <span class="name">{{myAvatar.name}}</span>
                         </div>
                         <i class="fa-solid fa-circle-notch"></i>
                         <i class="fa-solid fa-message"></i>
@@ -40,36 +41,18 @@
                         <input type="text" placeholder="Cerca o inizia una nuova chat">
                     </div>
                     <div class="contacts_box">
-                        <div class="contact flex">
+                        <!--class selected per il contatto selezionato-->
+                        <div class="contact flex" v-for="(contact, index) in contacts" @click="selectContact(index)">
                             <div class="avatar flex">
-                                <img src="img/avatar_2.jpg" alt="contact avatar">
+                                <img :src="contact.avatar" alt="contact.name">
                             </div>
                             <div class="avatar_text">
-                                <div class="avatar_name">Michele</div>
-                                <div class="avatar_last_message">Ultimo messaggio alle 23:23</div>
+                                <div class="avatar_name">{{contact.name}}</div>
+                                <div class="avatar_last_message">Ultimo messaggio inviato</div>
                             </div>
                             <div class="time">12:00</div>
                         </div>
-                        <div class="contact flex">
-                            <div class="avatar flex">
-                                <img src="img/avatar_2.jpg" alt="contact avatar">
-                            </div>
-                            <div class="avatar_text">
-                                <div class="avatar_name">Michele</div>
-                                <div class="avatar_last_message">Ultimo messaggio alle 23:23</div>
-                            </div>
-                            <div class="time">12:00</div>
-                        </div>
-                        <div class="contact flex">
-                            <div class="avatar flex">
-                                <img src="img/avatar_2.jpg" alt="contact avatar">
-                            </div>
-                            <div class="avatar_text">
-                                <div class="avatar_name">Michele</div>
-                                <div class="avatar_last_message">Ultimo messaggio alle 23:23</div>
-                            </div>
-                            <div class="time">12:00</div>
-                        </div>
+                        
                     </div>
                 </div>
 
@@ -77,10 +60,10 @@
                 <div class="main flex">  
                     <div class="active_contact_box flex">
                         <div class="avatar flex">
-                            <img src="img/avatar_1.jpg" alt="mia foto avatar">
+                            <img :src="contacts[selectedIndex].avatar" alt="contacts[selectedIndex].name">
                             <div class="name">
-                                <div class="avatar_name">Michele</div>
-                                <div class="avatar_last_message">Ultimo messaggio alle 23:23</div>
+                                <div class="avatar_name">{{contacts[selectedIndex].name}}</div>
+                                <div class="avatar_last_message">Ultimo messaggio inviato</div>
                             </div>
                         </div>
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -88,10 +71,10 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                     <div class="chat_box">
-                        <div class="container">
-                            <div class="chat_message sent flex">
+                        <div class="container ">
+                            <div class="chat_message sent flex" v-for="(messaggio, index) in contacts[selectedIndex].messages">
                                 <div class="message flex bg-green">
-                                    <div class="message_text">ciao chicco</div>
+                                    <div class="message_text"><!--{{messaggio[index].message}}--></div>
                                     <div class="message_time">12:00</div>
                                 </div>
                             </div>

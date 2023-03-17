@@ -4,14 +4,15 @@
     box-sizing: border-box;
 }
 
-/*DEBUG*/
-.debug .border {
-    border: 1px solid black;
-}
+
 
 /*UTILITY*/
 .flex {
     display: flex;
+}
+body {
+    font-family: 'Noto Sans', sans-serif;
+
 }
 
 /*CSS*/
@@ -109,6 +110,9 @@
     padding: 10px;
     border-bottom: 0.7px solid #eaeaea;
     border-top: 0.7px solid #eaeaea;
+}
+.selected {
+    background-color: #eaeaea;
 }
 .avatar_text {
     width: 73%;
