@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp di Boolean</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="debug">    
+    <div id="app">
+        <div class="background">
+            <div class="background_top"></div>
+            <div class="background_bottom"></div>
+
+            <div class="box_container flex">
+
+                 <!--colonna sx-->
+                <div class="a_side boder flex">
+                    <div class="user_box flex">
+                        <div class="avatar flex">
+                            <img src="img/avatar_1.jpg" alt="mia foto avatar">
+                            <span class="name">Emanuele</span>
+                        </div>
+                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                    <div class="notification_box flex">
+                        <div class="notification_icon">
+                            <i class="fa-regular fa-bell-slash"></i>
+                        </div>
+                        <div class="notification_text">
+                            <div>Ricevi notifiche di nuovi messaggi</div>
+                            <a href="#">Attiva notifiche desktop</a>
+                        </div>
+                    </div>
+                    <div class="search_box flex">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+                    <div class="contacts_box">
+                        <div class="contact flex">
+                            <div class="avatar flex">
+                                <img src="img/avatar_2.jpg" alt="contact avatar">
+                            </div>
+                            <div class="avatar_text">
+                                <div class="avatar_name">Michele</div>
+                                <div class="avatar_last_message">Ultimo messaggio alle 23:23</div>
+                            </div>
+                            <div class="time">12:00</div>
+                        </div>
+                        <div class="contact flex">
+                            <div class="avatar flex">
+                                <img src="img/avatar_2.jpg" alt="contact avatar">
+                            </div>
+                            <div class="avatar_text">
+                                <div class="avatar_name">Michele</div>
+                                <div class="avatar_last_message">Ultimo messaggio alle 23:23</div>
+                            </div>
+                            <div class="time">12:00</div>
+                        </div>
+                        <div class="contact flex">
+                            <div class="avatar flex">
+                                <img src="img/avatar_2.jpg" alt="contact avatar">
+                            </div>
+                            <div class="avatar_text">
+                                <div class="avatar_name">Michele</div>
+                                <div class="avatar_last_message">Ultimo messaggio alle 23:23</div>
+                            </div>
+                            <div class="time">12:00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--colonna dx-->
+                <div class="main flex">  
+                    <div class="active_contact_box flex">
+                        <div class="avatar flex">
+                            <img src="img/avatar_1.jpg" alt="mia foto avatar">
+                            <div class="name">
+                                <div class="avatar_name">Michele</div>
+                                <div class="avatar_last_message">Ultimo messaggio alle 23:23</div>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                    <div class="chat_box">
+                        <div class="container">
+                            <div class="chat_message sent flex">
+                                <div class="message flex bg-green">
+                                    <div class="message_text">ciao chicco</div>
+                                    <div class="message_time">12:00</div>
+                                </div>
+                            </div>
+                            <div class="chat_message received flex">
+                                <div class="message flex bg-white">
+                                    <div class="message_text">ciao chicco</div>
+                                    <div class="message_time">12:00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="new_message_box flex">
+                        <div><i class="fa-regular fa-face-smile"></i></div>
+                        <input type="text" placeholder="Scrivi un messaggio">
+                        <div><i class="fa-solid fa-microphone"></i></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

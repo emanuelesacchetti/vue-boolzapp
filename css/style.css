@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*DEBUG*/
+.debug .border {
+    border: 1px solid black;
+}
+
+/*UTILITY*/
+.flex {
+    display: flex;
+}
+
+/*CSS*/
+.background {
+    position: relative;
+}
+.background_top {
+    height: 100px;
+    background-color: #009688;
+}
+.background_bottom {
+    height: calc(100vh - 100px);
+    background-color: #dbdbd2;
+}
+.box_container {
+    width: 1100px;
+    height: 700px;
+    background-color: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.a_side {
+    width: 400px;
+    flex-direction: column;
+    border-right: 1px solid rgb(215, 215, 215);
+}
+.user_box {
+    height: 70px;
+    background-color: #eaeaea;
+    align-items: center;
+}
+.avatar {
+    align-items: center;
+    flex-grow: 1;
+    padding: 5px;
+    font-weight: 700;
+}
+.avatar img {
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.user_box i {
+    margin-right: 15px;
+    font-size: 18px;
+    color: gray;
+}
+.notification_box {
+    height: 70px;
+    background-color: #8edafc;
+    padding: 10px;
+    justify-content: left;
+    align-items: center;
+    
+}
+.notification_icon {
+    background-color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    height: 40px;
+    width: 40px;
+    font-size: 17px;
+    color: #8edafc;
+    margin-right: 10px;
+}
+.search_box {
+    height: 35px;
+    background-color: #fafafa;
+    align-items: center;
+    justify-content: center;
+}
+.search_box input {
+    height: 31px;
+    width: 98%;
+    padding-left: 30px;
+    background: url(https://cdn-icons-png.flaticon.com/512/49/49116.png) no-repeat left;
+    background-size: 15px;
+    background-position-x: 10px;
+    line-height: 30px;
+    border: 1px solid rgb(215, 215, 215);
+}
+.contacts_box {
+    background-color: white;
+    flex-grow: 1;
+    overflow-y: scroll;
+}
+.contacts_box::-webkit-scrollbar {
+    display: none;
+}
+.contact {
+    height: 70px;
+    padding: 10px;
+    border-bottom: 0.7px solid #eaeaea;
+    border-top: 0.7px solid #eaeaea;
+}
+.avatar_text {
+    width: 73%;
+}
+.avatar_last_message {
+    font-size: 12px;
+    color: rgb(148, 146, 146);
+}
+.time {
+    width: 10%;
+    font-size: 11px;
+    color: #949292;
+
+}
+.main {
+    width: calc(100% - 400px);
+    flex-direction: column;
+}
+.active_contact_box {
+    height: 70px;
+    background-color: #eaeaea;
+    align-items: center;
+}
+.active_contact_box i {
+    margin-right: 15px;
+    font-size: 18px;
+    color: gray;
+}
+.chat_box {
+    flex-grow: 1;
+    background-image: url(https://e0.pxfuel.com/wallpapers/610/980/desktop-wallpaper-santanu-manna-on-phone-black-background-whatsapp-dark.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.new_message_box {
+    height: 70px;
+    background-color: #f3eeea;
+    align-items: center;
+}
+.container {
+    margin: 20px auto;
+    width: 75%;
+    height: calc(100% - 40px)
+}
+.chat_message {
+    padding: 5px 0;
+}
+.sent {
+    justify-content: end;
+}
+.received {
+    justify-content: start;
+}
+.message {
+    border-radius: 6px;
+    min-width: 150px;
+    flex-direction: column;
+}
+.bg-green {
+    background-color: #c2fc95;
+}
+.bg-white {
+    background-color: white;
+}
+.message_text {
+    height: calc(100% - 15px);
+    padding: 10px 10px 3px 10px;
+}
+.message_time {
+    height: 10px;
+    font-size: 10px;
+    color: gray;
+    padding: 0 2px 2px;
+    align-self: flex-end;
+}
+.new_message_box div {
+    width: 80px;
+    text-align: center;
+    font-size: 20px;
+}
+.new_message_box input {
+    flex-grow: 1;
+    height: calc(100% - 20px);
+    border-radius: 10px;
+    border: 0px;
+    padding: 10px;
+}
