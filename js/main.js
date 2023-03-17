@@ -179,14 +179,24 @@ methods: {
         this.selectedIndex = indice;
     },
     addMessage(element){
-        let newMessage = {
+        console.log('mio mex')
+        let sentMessage = {
                             date: '10/01/2020 15:30:55',
                             message: element,
                             status: 'sent'
                         };
-        this.contacts[this.selectedIndex].messages.push(newMessage);
+        this.contacts[this.selectedIndex].messages.push(sentMessage);
         this.newMessage = '';
-
+        setTimeout(function(){
+            console.log('suo mex');
+            let receivedMessage = {
+                                    date: '10/01/2020 15:30:55',
+                                    message: 'ok',
+                                    status: 'received'
+                                  };
+            this.contacts[this.selectedIndex].messages.push(receivedMessage);
+        
+        },2000);
         }
     }
 }
