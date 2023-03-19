@@ -9,7 +9,6 @@ data() {
         },
         selectedIndex: 0,
         newMessage: '',
-        searchName: '',
         searchContact: '',
         contacts: [
             {
@@ -201,19 +200,20 @@ methods: {
         
         },2000);
         },
-        keyup(){
-            if((this.searchContact != '')){
-                this.searchName = this.searchContact
-                console.log(this.searchName)
-            }
+        searchName(){
+            let search = this.searchContact.toLowerCase();
+
+            this.contacts.forEach((contatto) => {
+
+                if (contatto.name.toLowerCase().includes(search)) { 
+                    contatto.visible = true;
+                } else {
+                    contatto.visible = false;
+                }
+            });
+
         },
-        search(elemento){
-            if(elemento.name.includes(this.searchName)){
-                return true;
-            }else{
-                return false;
-            }
-        }
+
     }
 }
 ).mount('#app')
