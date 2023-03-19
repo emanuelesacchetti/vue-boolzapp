@@ -38,11 +38,11 @@
                         </div>
                     </div>
                     <div class="search_box flex">
-                        <input type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchContact" @keyup="keyup()">
                     </div>
                     <div class="contacts_box">
                         <!--class selected per il contatto selezionato-->
-                        <div class="contact flex" :class="(index == selectedIndex)? 'selected':''" v-for="(contact, index) in contacts" @click="selectContact(index)">
+                        <div v-show="search(contact)" class="contact flex" :class="(index == selectedIndex)? 'selected':''" v-for="(contact, index) in contacts" @click="selectContact(index)" >
                             <div class="avatar flex">
                                 <img :src="contact.avatar" alt="contact.name">
                             </div>

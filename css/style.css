@@ -30,7 +30,6 @@ body {
 .box_container {
     width: 1100px;
     height: 700px;
-    background-color: red;
     position: absolute;
     top: 50%;
     left: 50%;

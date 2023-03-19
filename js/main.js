@@ -9,6 +9,8 @@ data() {
         },
         selectedIndex: 0,
         newMessage: '',
+        searchName: '',
+        searchContact: '',
         contacts: [
             {
                 name: 'Michele',
@@ -180,13 +182,14 @@ methods: {
     },
     addMessage(element){
         console.log('mio mex')
+        let that = this;
         let sentMessage = {
                             date: '10/01/2020 15:30:55',
                             message: element,
                             status: 'sent'
                         };
-        this.contacts[this.selectedIndex].messages.push(sentMessage);
-        this.newMessage = '';
+        that.contacts[that.selectedIndex].messages.push(sentMessage);
+        that.newMessage = '';
         setTimeout(function(){
             console.log('suo mex');
             let receivedMessage = {
@@ -194,9 +197,22 @@ methods: {
                                     message: 'ok',
                                     status: 'received'
                                   };
-            this.contacts[this.selectedIndex].messages.push(receivedMessage);
+            that.contacts[that.selectedIndex].messages.push(receivedMessage);
         
         },2000);
+        },
+        keyup(){
+            if((this.searchContact != '')){
+                this.searchName = this.searchContact
+                console.log(this.searchName)
+            }
+        },
+        search(elemento){
+            if(elemento.name.includes(this.searchName)){
+                return true;
+            }else{
+                return false;
+            }
         }
     }
 }
