@@ -193,7 +193,9 @@ methods: {
         let sentMessage = {
                             date: '10/01/2020 15:30:55',
                             message: element,
-                            status: 'sent'
+                            status: 'sent',
+                            menu: false,
+                            show: true
                         };
         that.contacts[that.selectedIndex].messages.push(sentMessage);
         that.newMessage = '';
@@ -202,7 +204,9 @@ methods: {
             let receivedMessage = {
                                     date: '10/01/2020 15:30:55',
                                     message: 'ok',
-                                    status: 'received'
+                                    status: 'received',
+                                    menu: false,
+                                    show: true
                                   };
             that.contacts[that.selectedIndex].messages.push(receivedMessage);
         
@@ -243,10 +247,6 @@ methods: {
         },
         show(element){
             element.show = false
-        },
-        currentTime(){
-            const currentTime = DateTime.now().setLocale('it').toLocaleString(DateTime.TIME_24_SIMPLE);
-            return currentTime
         }
     }
 }

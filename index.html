@@ -78,7 +78,7 @@
                                     <!--qui sotto il messaggio da cliccare per il menu-->
                                     <div class="message flex" :class="(messaggio.status == 'sent')?'bg-green':'bg-white'" @click="apriMenu(messaggio, index)" v-show="messaggio.show">
                                         <div class="message_text">{{messaggio.message}}</div>
-                                        <div class="message_time">{{currentTime()}}</div>
+                                        <div class="message_time">{{messaggio.date}}</div>
                                         
                                         <div class="menuTendina" v-show="messaggio.menu">
                                             <div class="info_menuTendina" @click="offcanvasOn()">info</div>
