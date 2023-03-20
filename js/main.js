@@ -247,10 +247,6 @@ methods: {
         currentTime(){
             const currentTime = DateTime.now().setLocale('it').toLocaleString(DateTime.TIME_24_SIMPLE);
             return currentTime
-        },
-        dataMessaggio(element, indice){
-            DateTime = this.contacts[0].messages[indice].date;
-            element.date.toLocaleString(element.TIME_24_SIMPLE);
         }
     }
 }
