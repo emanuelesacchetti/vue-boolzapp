@@ -1,5 +1,7 @@
 const { createApp } = Vue
 
+const DateTime = luxon.DateTime;
+
 createApp({
 data() {
     return {
@@ -10,7 +12,9 @@ data() {
         selectedIndex: 0,
         newMessage: '',
         searchContact: '',
-        selectedMessageIndex: 0,
+        offcanvas: false,
+
+        messageIndex: 0,
         contacts: [
             {
                 name: 'Michele',
@@ -217,16 +221,36 @@ methods: {
             });
 
         },
-        apriMenu(element){
-            element.menu = !element.menu
-            
-            console.log(element.menu)
+        apriMenu(element, indice){
+            element.menu = !element.menu,
+            this.messageIndex = indice,
+            console.log(this.messageIndex),
+            console.log(indice)
         },
         addMenuKey(){
-            this.contacts.messages.forEach((singoloMessaggio)=>{
-                singoloMessaggio.menu = false
-                
+            this.contacts.forEach((singoloContatto)=>{
+                singoloContatto.messages.forEach((singoloMessaggio)=>{
+                    singoloMessaggio.menu = false
+                    singoloMessaggio.show = true
+                })
             })
+        },
+        offcanvasOn(){
+            this.offcanvas = true
+        },
+        offcanvasOff(){
+            this.offcanvas = false
+        },
+        show(element){
+            element.show = false
+        },
+        currentTime(){
+            const currentTime = DateTime.now().setLocale('it').toLocaleString(DateTime.TIME_24_SIMPLE);
+            return currentTime
+        },
+        dataMessaggio(element, indice){
+            DateTime = this.contacts[0].messages[indice].date;
+            element.date.toLocaleString(element.TIME_24_SIMPLE);
         }
     }
 }

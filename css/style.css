@@ -228,9 +228,6 @@ body {
 .delete_menuTendina {
     padding: 1px 8px 6px;
 }
-.info-schedule {
-    
-}
 .d-none{
     display: none;
 }
@@ -245,10 +242,24 @@ body {
 .message-info {
     background-image: url(https://e0.pxfuel.com/wallpapers/610/980/desktop-wallpaper-santanu-manna-on-phone-black-background-whatsapp-dark.jpg);
     padding: 20px;
-    color: white;
+    
 }
 .inviato-info {
     flex-grow: 1;
     background-color: #eaeaea;
     padding: 20px;
+}
+.message-info .message_text{
+    padding: 10px;
+
+}
+
+/*data in cima alla chat*/
+.giornoMessaggio {
+    text-align: center;
+}
+.giornoMessaggio span {
+    background-color: white;
+    border-radius: 10px;
+    padding: 0px 7px;
 }
