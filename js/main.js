@@ -10,6 +10,7 @@ data() {
         selectedIndex: 0,
         newMessage: '',
         searchContact: '',
+        selectedMessageIndex: 0,
         contacts: [
             {
                 name: 'Michele',
@@ -175,6 +176,9 @@ data() {
             ]
     }
 },
+mounted(){
+    this.addMenuKey()
+},
 methods: {
     selectContact(indice){
         this.selectedIndex = indice;
@@ -213,7 +217,17 @@ methods: {
             });
 
         },
-
+        apriMenu(element){
+            element.menu = !element.menu
+            
+            console.log(element.menu)
+        },
+        addMenuKey(){
+            this.contacts.messages.forEach((singoloMessaggio)=>{
+                singoloMessaggio.menu = false
+                
+            })
+        }
     }
 }
 ).mount('#app')

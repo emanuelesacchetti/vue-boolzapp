@@ -167,6 +167,7 @@ body {
     border-radius: 6px;
     min-width: 150px;
     flex-direction: column;
+    position: relative;
 }
 .bg-green {
     background-color: #c2fc95;
@@ -200,5 +201,54 @@ body {
 .wrapper {
     width: 100%;
     height: 100%;
-    padding: 5px 0;
+    padding: 25px 0;
+}
+
+
+/*Menu per info e cancellazione*/
+
+.menuTendina {
+    position: absolute;
+    background-color: white;
+    font-size: 10px;
+    
+}
+.wrapper.sent .menuTendina {
+    top: 48px;
+    left: 175px;
+}
+.wrapper.received .menuTendina {
+    top: 48px;
+    right: 92px;
+}
+.info_menuTendina {
+    border-bottom: 1px solid rgb(148, 146, 146);
+    padding: 6px 8px 1px;
+}
+.delete_menuTendina {
+    padding: 1px 8px 6px;
+}
+.info-schedule {
+    
+}
+.d-none{
+    display: none;
+}
+.title-info {
+    padding: 20px;
+    color: white;
+    font-size: 30px;
+    background-image: url(https://e0.pxfuel.com/wallpapers/610/980/desktop-wallpaper-santanu-manna-on-phone-black-background-whatsapp-dark.jpg);
+    height: 80px;
+    justify-content: space-between;
+}
+.message-info {
+    background-image: url(https://e0.pxfuel.com/wallpapers/610/980/desktop-wallpaper-santanu-manna-on-phone-black-background-whatsapp-dark.jpg);
+    padding: 20px;
+    color: white;
+}
+.inviato-info {
+    flex-grow: 1;
+    background-color: #eaeaea;
+    padding: 20px;
 }

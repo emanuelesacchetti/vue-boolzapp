@@ -75,9 +75,14 @@
 
                             <div class="chat_message" v-for="(messaggio, index) in contacts[selectedIndex].messages">
                                 <div class="wrapper flex" :class="(messaggio.status == 'sent')?'sent':'received'">
-                                    <div class="message flex" :class="(messaggio.status == 'sent')?'bg-green':'bg-white'">
+                                    <!--qui sotto il messaggio da cliccare per il menu-->
+                                    <div class="message flex" :class="(messaggio.status == 'sent')?'bg-green':'bg-white'" @click="apriMenu">
                                         <div class="message_text">{{messaggio.message}}</div>
                                         <div class="message_time">{{messaggio.date}}</div>
+                                        <div class="menuTendina" v-show="messaggio.menu">
+                                            <div class="info_menuTendina">info</div>
+                                            <div class="delete_menuTendina">cancella</div>
+                                        </div>
                                     </div>
                                 </div>  
                             </div>
@@ -89,6 +94,22 @@
                         <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage(newMessage)" >
                         <div><i class="fa-solid fa-microphone"></i></div>
                     </div>
+                </div>
+                <div class="main flex info-schedule d-none">
+                    <div class="title-info flex">Info messaggio
+                        <i class="fa-solid fa-x"></i>
+                    </div>
+                    <div class="message-info">
+                        <!--
+                        <div class="wrapper flex" :class="(contacts[0].messages[0].status == 'sent')?'sent':'received'">
+                            <div class="message flex" :class="(contacts[0].messages[0].status == 'sent')?'bg-green':'bg-white'">
+                                <div class="message_text">{{contacts[0].messages[0].message}}</div>
+                                <div class="message_time">{{contacts[0].message[0].date}}</div>
+                            </div>
+                        </div>  
+                        -->
+                    </div>
+                    <div class="inviato-info">inviato il 54564654</div>
                 </div>
 
             </div>
