@@ -185,6 +185,7 @@ mounted(){
 methods: {
     selectContact(indice){
         this.selectedIndex = indice;
+        this.offcanvasOff()
     },
     addMessage(element){
         console.log('mio mex')
@@ -251,9 +252,9 @@ methods: {
         getOnlyTime(dateTime){
            return DateTime.fromFormat(dateTime, 'dd/MM/yyyy HH:mm:ss').toFormat('HH:mm');
         },
-        getIndexLastMessage(){
-            let lastMessage = this.contacts[this.selectedIndex].messages.length-1;
-           return lastMessage
+        splitDate(data){
+            let splitDate = data.split(' ');
+            return splitDate
         }
     }
 }

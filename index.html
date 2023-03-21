@@ -41,6 +41,7 @@
                         <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchContact" @keyup="searchName()">
                     </div>
                     <div class="contacts_box">
+                        
                         <!--Ogni singolo contatto nella lista contatti-->
                         <div v-show="contact.visible" class="contact flex" :class="(index == selectedIndex)? 'selected':''" v-for="(contact, index) in contacts" @click="selectContact(index)" >
                             <div class="avatar flex">
@@ -49,11 +50,11 @@
                             <div class="avatar_text">
                                 <div class="avatar_name">{{contact.name}}</div>
                                 <div class="avatar_last_message">
-                                    Ultimo messaggio: {{contact.messages[getIndexLastMessage()]}}
+                                    Ultimo messaggio: {{contact.messages[contact.messages.length-1].message}}
                                 </div>
                             </div>
                             <div class="time">
-                                {{contact.messages[getIndexLastMessage()]}}
+                                {{getOnlyTime(contact.messages[contact.messages.length-1].date)}}
                             </div>
                         </div>
                         
@@ -68,8 +69,9 @@
                             <div class="name">
                                 <div class="avatar_name">{{contacts[selectedIndex].name}}</div>
                                 <div class="avatar_last_message">
-                                    Ultimo messaggio: {{contacts[selectedIndex].messages[getIndexLastMessage()].message}} - 
-                                    il: {{contacts[selectedIndex].messages[getIndexLastMessage()].date}}
+                                    Ultimo messaggio: {{contacts[selectedIndex].messages[contacts[selectedIndex].messages.length-1].message}} - 
+                                    il {{splitDate(contacts[selectedIndex].messages[contacts[selectedIndex].messages.length-1].date)[0]}}
+                                    alle {{splitDate(contacts[selectedIndex].messages[contacts[selectedIndex].messages.length-1].date)[1]}}
                                 </div>
                             </div>
                         </div>
