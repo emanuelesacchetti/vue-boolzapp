@@ -48,9 +48,13 @@
                             </div>
                             <div class="avatar_text">
                                 <div class="avatar_name">{{contact.name}}</div>
-                                <div class="avatar_last_message">Ultimo messaggio inviato</div>
+                                <div class="avatar_last_message">
+                                    Ultimo messaggio: {{contact.messages[getIndexLastMessage()]}}
+                                </div>
                             </div>
-                            <div class="time">ciao</div>
+                            <div class="time">
+                                {{contact.messages[getIndexLastMessage()]}}
+                            </div>
                         </div>
                         
                     </div>
@@ -63,7 +67,10 @@
                             <img :src="contacts[selectedIndex].avatar" alt="contacts[selectedIndex].name">
                             <div class="name">
                                 <div class="avatar_name">{{contacts[selectedIndex].name}}</div>
-                                <div class="avatar_last_message">Ultimo messaggio inviato</div>
+                                <div class="avatar_last_message">
+                                    Ultimo messaggio: {{contacts[selectedIndex].messages[getIndexLastMessage()].message}} - 
+                                    il: {{contacts[selectedIndex].messages[getIndexLastMessage()].date}}
+                                </div>
                             </div>
                         </div>
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -72,13 +79,12 @@
                     </div>
                     <div class="chat_box">
                         <div class="container ">
-                            <div class="giornoMessaggio"><span>ciao</span></div>
                             <div class="chat_message" v-for="(messaggio, index) in contacts[selectedIndex].messages">
                                 <div class="wrapper flex" :class="(messaggio.status == 'sent')?'sent':'received'">
                                     <!--qui sotto il messaggio da cliccare per il menu-->
                                     <div class="message flex" :class="(messaggio.status == 'sent')?'bg-green':'bg-white'" @click="apriMenu(messaggio, index)" v-show="messaggio.show">
                                         <div class="message_text">{{messaggio.message}}</div>
-                                        <div class="message_time">{{messaggio.date}}</div>
+                                        <div class="message_time">{{getOnlyTime(messaggio.date)}}</div>
                                         
                                         <div class="menuTendina" v-show="messaggio.menu">
                                             <div class="info_menuTendina" @click="offcanvasOn()">info</div>

@@ -211,7 +211,7 @@ body {
     position: absolute;
     background-color: white;
     font-size: 10px;
-    
+    border-radius: 4px;
 }
 .wrapper.sent .menuTendina {
     top: 48px;

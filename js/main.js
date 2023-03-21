@@ -13,7 +13,6 @@ data() {
         newMessage: '',
         searchContact: '',
         offcanvas: false,
-
         messageIndex: 0,
         contacts: [
             {
@@ -191,25 +190,26 @@ methods: {
         console.log('mio mex')
         let that = this;
         let sentMessage = {
-                            date: '10/01/2020 15:30:55',
+                            date: DateTime.now().setLocale('it').toFormat('dd/MM/yyyy HH:mm:ss'),
                             message: element,
                             status: 'sent',
                             menu: false,
                             show: true
                         };
+                        console.log(sentMessage)
         that.contacts[that.selectedIndex].messages.push(sentMessage);
         that.newMessage = '';
         setTimeout(function(){
             console.log('suo mex');
             let receivedMessage = {
-                                    date: '10/01/2020 15:30:55',
+                                    date:DateTime.now().setLocale('it').toFormat('dd/MM/yyyy HH:mm:ss'),
                                     message: 'ok',
                                     status: 'received',
                                     menu: false,
                                     show: true
                                   };
             that.contacts[that.selectedIndex].messages.push(receivedMessage);
-        
+            
         },2000);
         },
         searchName(){
@@ -247,6 +247,13 @@ methods: {
         },
         show(element){
             element.show = false
+        },
+        getOnlyTime(dateTime){
+           return DateTime.fromFormat(dateTime, 'dd/MM/yyyy HH:mm:ss').toFormat('HH:mm');
+        },
+        getIndexLastMessage(){
+            let lastMessage = this.contacts[this.selectedIndex].messages.length-1;
+           return lastMessage
         }
     }
 }
