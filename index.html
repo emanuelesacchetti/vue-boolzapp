@@ -49,15 +49,13 @@
                             </div>
                             <div class="avatar_text">
                                 <div class="avatar_name">{{contact.name}}</div>
-                                <div class="avatar_last_message" v-show="viewLastMessages">
+                                <div class="avatar_last_message">
                                     Ultimo messaggio: {{contact.messages[contact.messages.length-1].message}}
                                 </div>
-                                
                             </div>
-                            <div class="time" v-show="viewLastMessages">
+                            <div class="time">
                                 {{getOnlyTime(contact.messages[contact.messages.length-1].date)}}
                             </div>
-                            
                         </div>
                         
                     </div>
@@ -70,37 +68,29 @@
                             <img :src="contacts[selectedIndex].avatar" alt="contacts[selectedIndex].name">
                             <div class="name">
                                 <div class="avatar_name">{{contacts[selectedIndex].name}}</div>
-                                <div class="avatar_last_message" v-if="viewLastMessages == true">
-                                    {{contacts[selectedIndex].messages[contacts[selectedIndex].messages.length-1].message}}
-                                    {{splitDate(contacts[selectedIndex].messages[contacts[selectedIndex].messages.length-1].date)[0]}}
-                                    {{splitDate(contacts[selectedIndex].messages[contacts[selectedIndex].messages.length-1].date)[1]}}
+                                <div class="avatar_last_message">
+                                    Ultimo messaggio: {{contacts[selectedIndex].messages[contacts[selectedIndex].messages.length-1].message}} - 
+                                    il {{splitDate(contacts[selectedIndex].messages[contacts[selectedIndex].messages.length-1].date)[0]}}
+                                    alle {{splitDate(contacts[selectedIndex].messages[contacts[selectedIndex].messages.length-1].date)[1]}}
                                 </div>
-                                <div v-else>  </div>
                             </div>
                         </div>
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <i class="fa-solid fa-paperclip"></i>
-                        <i class="fa-solid fa-ellipsis-vertical" @click="dropDown()"></i>
-
-                        <!--DROPDOWN-->
-                        <div class="dropdown" v-show="dropdown">
-                            <div class="deleteMessages" @click="(deleteAllMessages(contacts[selectedIndex].messages))">cancella messaggi</div>
-                            <div class="deleteChat">cancella chat</div>
-                        </div>
-
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                     <div class="chat_box">
                         <div class="container ">
                             <div class="chat_message" v-for="(messaggio, index) in contacts[selectedIndex].messages">
-                                <div class="wrapper flex" :class="(messaggio.status == 'sent')?'sent':'received'" v-show="viewLastMessages">
-                                    
+                                <div class="wrapper flex" :class="(messaggio.status == 'sent')?'sent':'received'">
+                                    <!--qui sotto il messaggio da cliccare per il menu-->
                                     <div class="message flex" :class="(messaggio.status == 'sent')?'bg-green':'bg-white'" @click="apriMenu(messaggio, index)" v-show="messaggio.show">
                                         <div class="message_text">{{messaggio.message}}</div>
                                         <div class="message_time">{{getOnlyTime(messaggio.date)}}</div>
                                         
                                         <div class="menuTendina" v-show="messaggio.menu">
                                             <div class="info_menuTendina" @click="offcanvasOn()">info</div>
-                                            <div class="delete_menuTendina" @click="deleteMessage(messaggio, index)">cancella</div>
+                                            <div class="delete_menuTendina" @click="show(messaggio)">cancella</div>
                                         </div>
 
                                     </div>
