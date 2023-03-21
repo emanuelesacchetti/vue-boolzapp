@@ -263,14 +263,23 @@ methods: {
             this.dropdown = !this.dropdown
         },
         deleteAllMessages(arrayMessaggi){
-            
+            /*
             arrayMessaggi.forEach((element)=>{
                 if(element.show == true){
                     element.message = '';
                     element.date = '';
                     element.viewLastMessages = false
+                    element.show = false
                 }                
             })
+            */
+           arrayMessaggi.splice(0,arrayMessaggi.length)
+        },
+        deleteMessage(index){
+            this.contacts[this.selectedIndex].messages.splice(index,1);
+            this.contacts[this.selectedIndex].messages.menu = false;
+            
+            
         }
 
     }

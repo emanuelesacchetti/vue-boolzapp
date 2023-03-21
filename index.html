@@ -93,14 +93,14 @@
                         <div class="container ">
                             <div class="chat_message" v-for="(messaggio, index) in contacts[selectedIndex].messages">
                                 <div class="wrapper flex" :class="(messaggio.status == 'sent')?'sent':'received'" v-show="viewLastMessages">
-                                    <!--qui sotto il messaggio da cliccare per il menu-->
+                                    
                                     <div class="message flex" :class="(messaggio.status == 'sent')?'bg-green':'bg-white'" @click="apriMenu(messaggio, index)" v-show="messaggio.show">
                                         <div class="message_text">{{messaggio.message}}</div>
                                         <div class="message_time">{{getOnlyTime(messaggio.date)}}</div>
                                         
                                         <div class="menuTendina" v-show="messaggio.menu">
                                             <div class="info_menuTendina" @click="offcanvasOn()">info</div>
-                                            <div class="delete_menuTendina" @click="show(messaggio)">cancella</div>
+                                            <div class="delete_menuTendina" @click="deleteMessage(messaggio, index)">cancella</div>
                                         </div>
 
                                     </div>
