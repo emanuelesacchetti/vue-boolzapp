@@ -13,6 +13,8 @@ data() {
         newMessage: '',
         searchContact: '',
         offcanvas: false,
+        dropdown: false,
+        viewLastMessages: true,
         messageIndex: 0,
         contacts: [
             {
@@ -195,7 +197,8 @@ methods: {
                             message: element,
                             status: 'sent',
                             menu: false,
-                            show: true
+                            show: true,
+                            viewLastMessages: true
                         };
                         console.log(sentMessage)
         that.contacts[that.selectedIndex].messages.push(sentMessage);
@@ -207,7 +210,8 @@ methods: {
                                     message: 'ok',
                                     status: 'received',
                                     menu: false,
-                                    show: true
+                                    show: true,
+                                    viewLastMessages: true
                                   };
             that.contacts[that.selectedIndex].messages.push(receivedMessage);
             
@@ -228,15 +232,14 @@ methods: {
         },
         apriMenu(element, indice){
             element.menu = !element.menu,
-            this.messageIndex = indice,
-            console.log(this.messageIndex),
-            console.log(indice)
+            this.messageIndex = indice
         },
         addMenuKey(){
             this.contacts.forEach((singoloContatto)=>{
                 singoloContatto.messages.forEach((singoloMessaggio)=>{
                     singoloMessaggio.menu = false
                     singoloMessaggio.show = true
+                    singoloMessaggio.viewLastMessages = true
                 })
             })
         },
@@ -255,7 +258,21 @@ methods: {
         splitDate(data){
             let splitDate = data.split(' ');
             return splitDate
+        },
+        dropDown(){
+            this.dropdown = !this.dropdown
+        },
+        deleteAllMessages(arrayMessaggi){
+            
+            arrayMessaggi.forEach((element)=>{
+                if(element.show == true){
+                    element.message = '';
+                    element.date = '';
+                    element.viewLastMessages = false
+                }                
+            })
         }
+
     }
 }
 ).mount('#app')
