@@ -210,7 +210,7 @@ body {
 /*Menu per info e cancellazione*/
 
 .menuTendina {
-    position: absolute;
+    /*position: absolute;*/
     background-color: white;
     font-size: 10px;
     z-index: 1;
