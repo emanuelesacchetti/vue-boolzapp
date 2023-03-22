@@ -14,6 +14,13 @@ data() {
         searchContact: '',
         offcanvas: false,
         messageIndex: 0,
+        pippo:3,
+        fraseRandom: [
+                        'se son rose fioriranno',
+                        'non ci sono più le mezze stagioni',
+                        "campa cavallo che l'erba cresce",
+                        'supercalifraggilistichespiralitoso'
+                     ],
         contacts: [
             {
                 name: 'Michele',
@@ -181,6 +188,7 @@ data() {
 },
 mounted(){
     this.addMenuKey()
+    console.log(this.fraseRandom[this.randomNumber(this.fraseRandom.length-1,0)])
 },
 methods: {
     selectContact(indice){
@@ -197,21 +205,25 @@ methods: {
                             menu: false,
                             show: true
                         };
-                        console.log(sentMessage)
-        that.contacts[that.selectedIndex].messages.push(sentMessage);
-        that.newMessage = '';
-        setTimeout(function(){
-            console.log('suo mex');
-            let receivedMessage = {
-                                    date:DateTime.now().setLocale('it').toFormat('dd/MM/yyyy HH:mm:ss'),
-                                    message: 'ok',
-                                    status: 'received',
-                                    menu: false,
-                                    show: true
-                                  };
-            that.contacts[that.selectedIndex].messages.push(receivedMessage);
-            
-        },2000);
+        if(element != ''){
+            that.contacts[that.selectedIndex].messages.push(sentMessage);
+            that.newMessage = '';
+            setTimeout(function(){
+                console.log('suo mex');
+                let receivedMessage = {
+                                        date:DateTime.now().setLocale('it').toFormat('dd/MM/yyyy HH:mm:ss'),
+                                        message: 'ok',
+                                        status: 'received',
+                                        menu: false,
+                                        show: true
+                                      };
+                                   
+                that.contacts[that.selectedIndex].messages.push(receivedMessage);
+                
+            },2000);
+        }                
+        
+        
         },
         searchName(){
             let search = this.searchContact.toLowerCase();
@@ -255,6 +267,10 @@ methods: {
         splitDate(data){
             let splitDate = data.split(' ');
             return splitDate
+        },
+        randomNumber(max,min){
+            let numeroCasuale = Math.floor(Math.random() * (max-min+1))+min;
+            return numeroCasuale;
         }
     }
 }
