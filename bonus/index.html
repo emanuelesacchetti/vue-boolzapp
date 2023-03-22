@@ -73,6 +73,7 @@
                             <img :src="contacts[selectedIndex].avatar" alt="contacts[selectedIndex].name">
                             <div class="name">
                                 <div class="avatar_name">{{contacts[selectedIndex].name}}</div>
+                                
                                 <div class="avatar_last_message">
                                     Ultimo messaggio: {{contacts[selectedIndex].messages[contacts[selectedIndex].messages.length-1].message}} - 
                                     il {{splitDate(contacts[selectedIndex].messages[contacts[selectedIndex].messages.length-1].date)[0]}}

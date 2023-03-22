@@ -209,10 +209,13 @@ methods: {
             that.contacts[that.selectedIndex].messages.push(sentMessage);
             that.newMessage = '';
             setTimeout(function(){
+                
+            })
+            setTimeout(function(){
                 console.log('suo mex');
                 let receivedMessage = {
                                         date:DateTime.now().setLocale('it').toFormat('dd/MM/yyyy HH:mm:ss'),
-                                        message: 'ok',
+                                        message: that.fraseRandom[that.randomNumber(that.fraseRandom.length-1,0)],
                                         status: 'received',
                                         menu: false,
                                         show: true
